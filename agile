@@ -1,0 +1,29 @@
+pipeline {
+    agent any  // Runs the pipeline on any available agent
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                git 'https://github.com/jeevasivaa/agile6.git'  // Replace with your repo URL
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'javac Main.java'  // Compiles Java code (modify for other languages)
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'java Main'  // Runs the compiled Java program
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying application...'  // Deployment placeholder
+            }
+        }
+    }
+}
